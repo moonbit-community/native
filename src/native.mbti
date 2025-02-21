@@ -1,0 +1,141 @@
+package illusory0x0/native
+
+// Values
+fn free(Ptr[Byte]) -> Unit
+
+fn malloc(UInt64) -> Ptr[Byte]
+
+fn memcmp(ConstPtr[Byte], ConstPtr[Byte], UInt64) -> Int
+
+fn memcpy(Ptr[Byte], ConstPtr[Byte], UInt64) -> Unit
+
+fn memmove(Ptr[Byte], ConstPtr[Byte], UInt64) -> Unit
+
+fn memset(Ptr[Byte], Byte, UInt64) -> Unit
+
+fn realloc(Ptr[Byte], UInt64) -> Ptr[Byte]
+
+let size_of_byte : Int64
+
+let size_of_char : Int64
+
+let size_of_double : Int64
+
+let size_of_float : Int64
+
+let size_of_int : Int64
+
+let size_of_int16 : Int64
+
+let size_of_int64 : Int64
+
+let size_of_uint : Int64
+
+let size_of_uint16 : Int64
+
+let size_of_uint64 : Int64
+
+fn try_finally[V, E : Error](() -> V!E, finally~ : () -> Unit) -> V!E
+
+fn unsafe_coerce[A, B](A) -> B
+
+// Types and methods
+type CStr
+impl CStr {
+  from_bytes(Bytes) -> (Self, Rc[Bytes])
+  reinterpret_as_const_byte_ptr(Self) -> ConstPtr[Byte]
+  to_bytes(Self) -> Bytes
+  unsafe_from_byte_ptr(Ptr[Byte]) -> Self
+  unsafe_from_const_byte_ptr(ConstPtr[Byte]) -> Self
+}
+
+type ConstPtr[T]
+impl ConstPtr {
+  add[T : Sized](Self[T], Int64) -> Self[T]
+  compare[T](Self[T], Self[T]) -> Int
+  from_rc_bytes[T](Rc[Bytes]) -> Self[T]
+  from_rc_fixedarray[T](Rc[FixedArray[T]]) -> Self[T]
+  from_rc_string[T](Rc[String]) -> Self[T]
+  get[T : Getter](Self[T]) -> T
+  is_null[T](Self[T]) -> Bool
+  null_pointer[T]() -> Self[T]
+  reinterpret_as_const_byte_ptr[T](Self[T]) -> Self[Byte]
+  reinterpret_as_int64[T](Self[T]) -> Int64
+  reinterpret_as_uint64[T](Self[T]) -> UInt64
+  sub[T : Sized](Self[T], Self[T]) -> Int64
+}
+
+type MCStr
+impl MCStr {
+  reinterpret_as_byte_ptr(Self) -> Ptr[Byte]
+  reinterpret_as_const_byte_ptr(Self) -> ConstPtr[Byte]
+  to_bytes(Self) -> Bytes
+  unsafe_from_byte_ptr(Ptr[Byte]) -> Self
+  unsafe_from_const_byte_ptr(ConstPtr[Byte]) -> Self
+}
+
+type Ptr[T]
+impl Ptr {
+  add[T : Sized](Self[T], Int64) -> Self[T]
+  compare[T](Self[T], Self[T]) -> Int
+  from_rc_fixedarray[T](Rc[FixedArray[T]]) -> Self[T]
+  get[T : Getter](Self[T]) -> T
+  is_null[T](Self[T]) -> Bool
+  null_pointer[T]() -> Self[T]
+  reinterpret_as_byte_ptr[T](Self[T]) -> Self[Byte]
+  reinterpret_as_const_byte_ptr[T](Self[T]) -> ConstPtr[Byte]
+  reinterpret_as_int64[T](Self[T]) -> Int64
+  reinterpret_as_uint64[T](Self[T]) -> UInt64
+  set[T : Setter](Self[T], T) -> Unit
+  sub[T : Sized](Self[T], Self[T]) -> Int64
+  to_const_ptr[T](Self[T]) -> ConstPtr[T]
+}
+
+type Rc[T]
+impl Rc {
+  from_bytes(Bytes) -> Self[Bytes]
+  from_fixedarray[T](FixedArray[T]) -> Self[FixedArray[T]]
+  release[T](Self[T]) -> Unit
+  scope_bytes[R](Bytes, (ConstPtr[Byte], Int) -> R) -> R
+  scope_fixedarray[T, R](FixedArray[T], (Ptr[T], Int) -> R) -> R
+}
+
+// Type aliases
+
+// Traits
+trait Getter
+impl Getter for Byte
+impl Getter for Char
+impl Getter for Int
+impl Getter for Int16
+impl Getter for Int64
+impl Getter for UInt
+impl Getter for UInt16
+impl Getter for UInt64
+impl Getter for Float
+impl Getter for Double
+
+trait Setter
+impl Setter for Byte
+impl Setter for Char
+impl Setter for Int
+impl Setter for Int16
+impl Setter for Int64
+impl Setter for UInt
+impl Setter for UInt16
+impl Setter for UInt64
+impl Setter for Float
+impl Setter for Double
+
+trait Sized
+impl Sized for Byte
+impl Sized for Char
+impl Sized for Int
+impl Sized for Int16
+impl Sized for Int64
+impl Sized for UInt
+impl Sized for UInt16
+impl Sized for UInt64
+impl Sized for Float
+impl Sized for Double
+
