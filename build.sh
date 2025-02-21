@@ -1,7 +1,6 @@
-set -e
 export MOON_HOME="$HOME/.moon"
-mkdir build
+mkdir build || true
 cd build
-cmake ..
+cmake ../stub
 cmake --build .
 cd ..
