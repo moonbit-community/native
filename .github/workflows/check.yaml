@@ -44,7 +44,7 @@ jobs:
 
       - name: Build Static Library 
         run: |
-          bash .github/workflows/build_static_lib.sh
+          bash build.sh
 
       - name: Set ulimit and run moon test
         if: ${{ matrix.os != 'windows-latest' }}
