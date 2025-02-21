@@ -7,20 +7,8 @@
 
 ```bash
 moon add illusory0x0/native
+bash .mooncakes/illusory0x0/native/install.sh
 ```
-
-### Build Static Library
-
-```bash
-mkdir build
-cd build
-cmake ..
-cmake --build .
-```
-
-### Install Static Library
-
-copy `libnative.mbt.a` into /your_project/lib
 
 ### Configure moon.pkg.json
 
