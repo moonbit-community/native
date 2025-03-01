@@ -4,7 +4,7 @@ pub fn CStr::from_bytes(bytes : Bytes) -> (CStr, Rc[Bytes]) {
     abort("expected null-terminated byte strings")
   }
   let rc = Rc::from_bytes(bytes)
-  let cstr = rc |> unsafe_coerce |> pointer_add(8) |> unsafe_coerce
+  let cstr = rc |> unsafe_coerce
   (cstr, rc)
 }
 

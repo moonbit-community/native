@@ -32,5 +32,5 @@ pub fn Ptr::sub[T : Sized](self : Ptr[T], other : Ptr[T]) -> Int64 {
 
 ///|
 pub fn Ptr::from_rc_fixedarray[T](rc : Rc[FixedArray[T]]) -> Ptr[T] {
-  unsafe_coerce(rc) |> pointer_add(8) |> unsafe_coerce
+  unsafe_coerce(rc)
 }
