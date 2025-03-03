@@ -1,11 +1,11 @@
 ///|
-type Rc[T]
+extern type Rc[T]
 
 ///|
-type Ptr[T]
+extern type Ptr[T]
 
 ///|
-type ConstPtr[T]
+extern type ConstPtr[T]
 
 ///|
 type MCStr Ptr[Byte]

@@ -136,9 +136,9 @@ void moonbit_native_double_pointer_set(void* ptr, double val) {
   *(double*)ptr = val;
 }
 
-struct moonbit_bytes* moonbit_native_cstring_to_bytes(const char* str) {
+moonbit_bytes_t moonbit_native_cstring_to_bytes(const char* str) {
   size_t len = strlen(str);
-  struct moonbit_bytes* bytes = moonbit_make_bytes(len + 1, 0); 
-  memcpy(bytes->data, str, len + 1);
+  moonbit_bytes_t bytes = moonbit_make_bytes(len + 1, 0); 
+  memcpy(bytes, str, len + 1);
   return bytes;
 }

@@ -19,8 +19,6 @@ pub fn Rc::from_fixedarray[T](xs : FixedArray[T]) -> Rc[FixedArray[T]] = "%ident
 pub fn Rc::scope_bytes[R](xs : Bytes, f : (ConstPtr[Byte], Int) -> R) -> R {
   let rc = Rc::from_bytes(xs)
   let ptr : ConstPtr[Byte] = unsafe_coerce(rc)
-    |> pointer_add(8)
-    |> unsafe_coerce
   let result = f(ptr, xs.length())
   rc.release()
   result
@@ -32,7 +30,7 @@ pub fn Rc::scope_fixedarray[T, R](
   f : (Ptr[T], Int) -> R
 ) -> R {
   let rc = Rc::from_fixedarray(xs)
-  let ptr : Ptr[T] = unsafe_coerce(rc) |> pointer_add(8) |> unsafe_coerce
+  let ptr : Ptr[T] = unsafe_coerce(rc)
   let result = f(ptr, xs.length())
   rc.release()
   result

@@ -28,15 +28,15 @@ pub fn ConstPtr::sub[T : Sized](
 
 ///|
 pub fn ConstPtr::from_rc_fixedarray[T](rc : Rc[FixedArray[T]]) -> ConstPtr[T] {
-  unsafe_coerce(rc) |> pointer_add(8) |> unsafe_coerce
+  unsafe_coerce(rc)
 }
 
 ///|
 pub fn ConstPtr::from_rc_bytes[T](rc : Rc[Bytes]) -> ConstPtr[T] {
-  unsafe_coerce(rc) |> pointer_add(8) |> unsafe_coerce
+  unsafe_coerce(rc)
 }
 
 ///|
 pub fn ConstPtr::from_rc_string[T](rc : Rc[String]) -> ConstPtr[T] {
-  unsafe_coerce(rc) |> pointer_add(8) |> unsafe_coerce
+  unsafe_coerce(rc)
 }
