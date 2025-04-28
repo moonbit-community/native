@@ -1,12 +1,10 @@
 {
   "link": {
     "native": {
-      "cc-flags": "-fwrapv -fsanitize=address -fsanitize=undefined",
-      "cc-link-flags": "-l native.mbt -L ./build"
+      "cc-flags": "-fwrapv -fsanitize=address -fsanitize=undefined"
     }
   },
   "warn-list": "-1-2-3-6",
-  "supported-targets": [
-    "native"
-  ]
+  "supported-targets": ["native"],
+  "native-stub": ["stub.c"]
 }

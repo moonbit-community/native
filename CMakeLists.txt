@@ -6,4 +6,4 @@ set(MOON_HOME $ENV{MOON_HOME})
 
 include_directories(${MOON_HOME}/include)
 
-add_library(${PROJECT_NAME} STATIC ptr.c)
+add_library(${PROJECT_NAME} STATIC ./src/ptr.c)
