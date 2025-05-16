@@ -1,6 +1,7 @@
 #include <moonbit.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -120,3 +121,5 @@ moonbit_bytes_t moonbit_native_cstring_to_bytes(const char *str) {
   memcpy(bytes, str, len + 1);
   return bytes;
 }
+
+int32_t moonbit_native_getchar(void) { return getchar(); }
