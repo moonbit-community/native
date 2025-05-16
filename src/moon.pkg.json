@@ -10,6 +10,7 @@
   "targets": {
     "constptr.mbt": ["native"],
     "cstr.mbt": ["native"],
+    "getchar_test.mbt": ["native"],
     "getchar.mbt": ["native"],
     "getter.mbt": ["native"],
     "mcstr.mbt": ["native"],
