@@ -10,6 +10,7 @@
   "targets": {
     "constptr.mbt": ["native"],
     "cstr.mbt": ["native"],
+    "getchar.mbt": ["native"],
     "getter.mbt": ["native"],
     "mcstr.mbt": ["native"],
     "memory.mbt": ["native"],
