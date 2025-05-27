@@ -14,7 +14,6 @@ The publicly available interfaces can be viewed in the [native.mbti](https://git
 
 ```bash
 moon add illusory0x0/native
-bash .mooncakes/illusory0x0/native/install.sh
 ```
 
 ### Configure moon.pkg.json
