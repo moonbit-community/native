@@ -41,64 +41,54 @@ fn[A, B] unsafe_coerce(A) -> B
 
 // Types and methods
 type CStr
-impl CStr {
-  from_bytes(Bytes) -> (Self, Rc[Bytes])
-  reinterpret_as_const_byte_ptr(Self) -> ConstPtr[Byte]
-  to_bytes(Self) -> Bytes
-  unsafe_from_byte_ptr(Ptr[Byte]) -> Self
-  unsafe_from_const_byte_ptr(ConstPtr[Byte]) -> Self
-}
+fn CStr::from_bytes(Bytes) -> (Self, Rc[Bytes])
+fn CStr::reinterpret_as_const_byte_ptr(Self) -> ConstPtr[Byte]
+fn CStr::to_bytes(Self) -> Bytes
+fn CStr::unsafe_from_byte_ptr(Ptr[Byte]) -> Self
+fn CStr::unsafe_from_const_byte_ptr(ConstPtr[Byte]) -> Self
 
 type ConstPtr[T]
-impl ConstPtr {
-  add[T : Sized](Self[T], Int64) -> Self[T]
-  compare[T](Self[T], Self[T]) -> Int
-  from_rc_bytes[T](Rc[Bytes]) -> Self[T]
-  from_rc_fixedarray[T](Rc[FixedArray[T]]) -> Self[T]
-  from_rc_string[T](Rc[String]) -> Self[T]
-  get[T : Getter](Self[T]) -> T
-  is_null[T](Self[T]) -> Bool
-  null_pointer[T]() -> Self[T]
-  reinterpret_as_const_byte_ptr[T](Self[T]) -> Self[Byte]
-  reinterpret_as_int64[T](Self[T]) -> Int64
-  reinterpret_as_uint64[T](Self[T]) -> UInt64
-  sub[T : Sized](Self[T], Self[T]) -> Int64
-}
+fn[T : Sized] ConstPtr::add(Self[T], Int64) -> Self[T]
+fn[T] ConstPtr::compare(Self[T], Self[T]) -> Int
+fn[T] ConstPtr::from_rc_bytes(Rc[Bytes]) -> Self[T]
+fn[T] ConstPtr::from_rc_fixedarray(Rc[FixedArray[T]]) -> Self[T]
+fn[T] ConstPtr::from_rc_string(Rc[String]) -> Self[T]
+fn[T : Getter] ConstPtr::get(Self[T]) -> T
+fn[T] ConstPtr::is_null(Self[T]) -> Bool
+fn[T] ConstPtr::null_pointer() -> Self[T]
+fn[T] ConstPtr::reinterpret_as_const_byte_ptr(Self[T]) -> Self[Byte]
+fn[T] ConstPtr::reinterpret_as_int64(Self[T]) -> Int64
+fn[T] ConstPtr::reinterpret_as_uint64(Self[T]) -> UInt64
+fn[T : Sized] ConstPtr::sub(Self[T], Self[T]) -> Int64
 
 type MCStr
-impl MCStr {
-  reinterpret_as_byte_ptr(Self) -> Ptr[Byte]
-  reinterpret_as_const_byte_ptr(Self) -> ConstPtr[Byte]
-  to_bytes(Self) -> Bytes
-  unsafe_from_byte_ptr(Ptr[Byte]) -> Self
-  unsafe_from_const_byte_ptr(ConstPtr[Byte]) -> Self
-}
+fn MCStr::reinterpret_as_byte_ptr(Self) -> Ptr[Byte]
+fn MCStr::reinterpret_as_const_byte_ptr(Self) -> ConstPtr[Byte]
+fn MCStr::to_bytes(Self) -> Bytes
+fn MCStr::unsafe_from_byte_ptr(Ptr[Byte]) -> Self
+fn MCStr::unsafe_from_const_byte_ptr(ConstPtr[Byte]) -> Self
 
 type Ptr[T]
-impl Ptr {
-  add[T : Sized](Self[T], Int64) -> Self[T]
-  compare[T](Self[T], Self[T]) -> Int
-  from_rc_fixedarray[T](Rc[FixedArray[T]]) -> Self[T]
-  get[T : Getter](Self[T]) -> T
-  is_null[T](Self[T]) -> Bool
-  null_pointer[T]() -> Self[T]
-  reinterpret_as_byte_ptr[T](Self[T]) -> Self[Byte]
-  reinterpret_as_const_byte_ptr[T](Self[T]) -> ConstPtr[Byte]
-  reinterpret_as_int64[T](Self[T]) -> Int64
-  reinterpret_as_uint64[T](Self[T]) -> UInt64
-  set[T : Setter](Self[T], T) -> Unit
-  sub[T : Sized](Self[T], Self[T]) -> Int64
-  to_const_ptr[T](Self[T]) -> ConstPtr[T]
-}
+fn[T : Sized] Ptr::add(Self[T], Int64) -> Self[T]
+fn[T] Ptr::compare(Self[T], Self[T]) -> Int
+fn[T] Ptr::from_rc_fixedarray(Rc[FixedArray[T]]) -> Self[T]
+fn[T : Getter] Ptr::get(Self[T]) -> T
+fn[T] Ptr::is_null(Self[T]) -> Bool
+fn[T] Ptr::null_pointer() -> Self[T]
+fn[T] Ptr::reinterpret_as_byte_ptr(Self[T]) -> Self[Byte]
+fn[T] Ptr::reinterpret_as_const_byte_ptr(Self[T]) -> ConstPtr[Byte]
+fn[T] Ptr::reinterpret_as_int64(Self[T]) -> Int64
+fn[T] Ptr::reinterpret_as_uint64(Self[T]) -> UInt64
+fn[T : Setter] Ptr::set(Self[T], T) -> Unit
+fn[T : Sized] Ptr::sub(Self[T], Self[T]) -> Int64
+fn[T] Ptr::to_const_ptr(Self[T]) -> ConstPtr[T]
 
 type Rc[T]
-impl Rc {
-  from_bytes(Bytes) -> Self[Bytes]
-  from_fixedarray[T](FixedArray[T]) -> Self[FixedArray[T]]
-  release[T](Self[T]) -> Unit
-  scope_bytes[R](Bytes, (ConstPtr[Byte], Int) -> R) -> R
-  scope_fixedarray[T, R](FixedArray[T], (Ptr[T], Int) -> R) -> R
-}
+fn Rc::from_bytes(Bytes) -> Self[Bytes]
+fn[T] Rc::from_fixedarray(FixedArray[T]) -> Self[FixedArray[T]]
+fn[T] Rc::release(Self[T]) -> Unit
+fn[R] Rc::scope_bytes(Bytes, (ConstPtr[Byte], Int) -> R) -> R
+fn[T, R] Rc::scope_fixedarray(FixedArray[T], (Ptr[T], Int) -> R) -> R
 
 // Type aliases
 
