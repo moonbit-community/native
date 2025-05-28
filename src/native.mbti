@@ -35,9 +35,9 @@ let size_of_uint16 : Int64
 
 let size_of_uint64 : Int64
 
-fn try_finally[V, E : Error](() -> V!E, finally~ : () -> Unit) -> V!E
+fn[V, E : Error] try_finally(() -> V!E, finally~ : () -> Unit) -> V!E
 
-fn unsafe_coerce[A, B](A) -> B
+fn[A, B] unsafe_coerce(A) -> B
 
 // Types and methods
 type CStr
