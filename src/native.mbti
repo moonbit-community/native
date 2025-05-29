@@ -65,15 +65,6 @@ impl ConstPtr {
   sub[T : Sized](Self[T], Self[T]) -> Int64
 }
 
-type MCStr
-impl MCStr {
-  reinterpret_as_byte_ptr(Self) -> Ptr[Byte]
-  reinterpret_as_const_byte_ptr(Self) -> ConstPtr[Byte]
-  to_bytes(Self) -> Bytes
-  unsafe_from_byte_ptr(Ptr[Byte]) -> Self
-  unsafe_from_const_byte_ptr(ConstPtr[Byte]) -> Self
-}
-
 type Ptr[T]
 impl Ptr {
   add[T : Sized](Self[T], Int64) -> Self[T]
