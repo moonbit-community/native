@@ -100,7 +100,7 @@ test "ConstCString::to_bytes" {
 test "CString::to_bytes" {
   let expected = b"hello world\x00"
   let actual = Rc::scope_bytes(expected, fn(ptr, _) {
-    let cstr = MCStr::unsafe_from_const_byte_ptr(ptr)
+    let cstr = CStr::unsafe_from_const_byte_ptr(ptr)
     cstr.to_bytes()
   })
   assert_eq!(actual, expected)

@@ -16,16 +16,6 @@ pub fn[T] ConstPtr::reinterpret_as_const_byte_ptr(
 }
 
 ///|
-pub fn MCStr::reinterpret_as_byte_ptr(self : MCStr) -> Ptr[Byte] {
-  unsafe_coerce(self)
-}
-
-///|
-pub fn MCStr::reinterpret_as_const_byte_ptr(self : MCStr) -> ConstPtr[Byte] {
-  unsafe_coerce(self)
-}
-
-///|
 pub fn CStr::reinterpret_as_const_byte_ptr(self : CStr) -> ConstPtr[Byte] {
   unsafe_coerce(self)
 }
