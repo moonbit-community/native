@@ -27,19 +27,19 @@ test "Rc::from_fixedarray" {
 test "Rc::bytes_scope" {
   let bytes = b"\x01\x02\x03\x04"
   let len = Rc::scope_bytes(bytes, fn(ptr, len) { len })
-  assert_eq!(len, bytes.length())
+  assert_eq(len, bytes.length())
   let b = Rc::scope_bytes(bytes, fn(ptr, _) { ptr.get() })
-  assert_eq!(b, bytes[0])
+  assert_eq(b, bytes[0])
 }
 
 ///|
 test "Rc::fixedarray_scope" {
   let arr : FixedArray[UInt] = [1, 2, 3, 4, 5]
   let len = Rc::scope_fixedarray(arr, fn(ptr, len) { len })
-  assert_eq!(len, arr.length())
+  assert_eq(len, arr.length())
   for i in 0..<arr.length() {
     let b = Rc::scope_fixedarray(arr, fn(ptr, _) { ptr.add(i.to_int64()).get() })
-    assert_eq!(b, arr[i])
+    assert_eq(b, arr[i])
   }
 }
 
@@ -51,7 +51,7 @@ test "memset" {
     memset(src.reinterpret_as_byte_ptr(), 0, len)
   })
   let expected : FixedArray[UInt64] = [0, 0, 0, 0, 0]
-  assert_eq!(actual, expected)
+  assert_eq(actual, expected)
 }
 
 ///|
@@ -67,7 +67,7 @@ test "memcpy" {
       len,
     )
   })
-  assert_eq!(expected, actual)
+  assert_eq(expected, actual)
 }
 
 ///|
@@ -83,7 +83,7 @@ test "memmove" {
       len,
     )
   })
-  assert_eq!(expected, actual)
+  assert_eq(expected, actual)
 }
 
 ///|
@@ -93,7 +93,7 @@ test "ConstCString::to_bytes" {
     let cstr = CStr::unsafe_from_const_byte_ptr(ptr)
     cstr.to_bytes()
   })
-  assert_eq!(actual, expected)
+  assert_eq(actual, expected)
 }
 
 ///|
@@ -103,7 +103,7 @@ test "CString::to_bytes" {
     let cstr = CStr::unsafe_from_const_byte_ptr(ptr)
     cstr.to_bytes()
   })
-  assert_eq!(actual, expected)
+  assert_eq(actual, expected)
 }
 
 ///|
@@ -119,7 +119,7 @@ test "memcpy" {
     rhs_ptr.reinterpret_as_const_byte_ptr(),
     (4L * size_of_double).reinterpret_as_uint64(),
   )
-  try_finally!(fn() { assert_eq!(cmp, 0) }, finally=fn() {
+  try_finally(fn() { assert_eq(cmp, 0) }, finally_=fn() {
     rc_lhs.release()
     rc_rhs.release()
   })
@@ -128,5 +128,5 @@ test "memcpy" {
 ///|
 test "is_null" {
   let ptr : Ptr[Int16] = null_pointer |> unsafe_coerce
-  assert_eq!(ptr.is_null(), true)
+  assert_eq(ptr.is_null(), true)
 }
