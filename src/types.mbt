@@ -1,11 +1,14 @@
 ///|
-extern type Rc[T]
+#external
+type Rc[T]
 
 ///|
-extern type Ptr[T]
+#external
+type Ptr[T]
 
 ///|
-extern type ConstPtr[T]
+#external
+type ConstPtr[T]
 
 ///|
 type CStr ConstPtr[Byte]
