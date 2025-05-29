@@ -37,9 +37,6 @@ jobs:
       fail-fast: false
     runs-on: ${{ matrix.os.name }}
     continue-on-error: false
-    
-    env:
-      MOON_CC: gcc
 
     steps:
       - uses: actions/checkout@v4
@@ -82,14 +79,19 @@ jobs:
         run: |
           ulimit -s 8176
 
-      - name: moon test
+      - name: moon test on unix
+        if: ${{ matrix.os.name != 'windows-latest' }}
         run: |
           moon test --target all,native
           moon test --target all,native --release
+        env:
+          MOON_CC: gcc
 
-      - name: moon test --doc
+      - name: moon test on windows
+        if: ${{ matrix.os.name == 'windows-latest' }}
         run: |
-          moon test --doc          
+          moon test --target all,native
+          moon test --target all,native --release   
 
   moon-json-format-check:
     runs-on: ubuntu-latest
