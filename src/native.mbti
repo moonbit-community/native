@@ -61,13 +61,6 @@ fn[T] ConstPtr::reinterpret_as_int64(Self[T]) -> Int64
 fn[T] ConstPtr::reinterpret_as_uint64(Self[T]) -> UInt64
 fn[T : Sized] ConstPtr::sub(Self[T], Self[T]) -> Int64
 
-type MCStr
-fn MCStr::reinterpret_as_byte_ptr(Self) -> Ptr[Byte]
-fn MCStr::reinterpret_as_const_byte_ptr(Self) -> ConstPtr[Byte]
-fn MCStr::to_bytes(Self) -> Bytes
-fn MCStr::unsafe_from_byte_ptr(Ptr[Byte]) -> Self
-fn MCStr::unsafe_from_const_byte_ptr(ConstPtr[Byte]) -> Self
-
 type Ptr[T]
 fn[T : Sized] Ptr::add(Self[T], Int64) -> Self[T]
 fn[T] Ptr::compare(Self[T], Self[T]) -> Int
