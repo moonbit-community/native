@@ -1,5 +1,5 @@
 ///|
-pub fn try_finally[V, E : Error](f : () -> V!E, finally~ : () -> Unit) -> V!E {
+pub fn[V, E : Error] try_finally(f : () -> V!E, finally~ : () -> Unit) -> V!E {
   try {
     let v = f!()
     finally()

@@ -1,15 +1,15 @@
 ///|
-pub fn ConstPtr::get[T : Getter](self : ConstPtr[T]) -> T {
+pub fn[T : Getter] ConstPtr::get(self : ConstPtr[T]) -> T {
   T::get(self)
 }
 
 ///|
-pub fn ConstPtr::compare[T](self : ConstPtr[T], other : ConstPtr[T]) -> Int {
+pub fn[T] ConstPtr::compare(self : ConstPtr[T], other : ConstPtr[T]) -> Int {
   pointer_sub(unsafe_coerce(self), unsafe_coerce(other)).to_int()
 }
 
 ///|
-pub fn ConstPtr::add[T : Sized](
+pub fn[T : Sized] ConstPtr::add(
   self : ConstPtr[T],
   offset : Int64
 ) -> ConstPtr[T] {
@@ -17,7 +17,7 @@ pub fn ConstPtr::add[T : Sized](
 }
 
 ///|
-pub fn ConstPtr::sub[T : Sized](
+pub fn[T : Sized] ConstPtr::sub(
   self : ConstPtr[T],
   other : ConstPtr[T]
 ) -> Int64 {
@@ -27,16 +27,16 @@ pub fn ConstPtr::sub[T : Sized](
 }
 
 ///|
-pub fn ConstPtr::from_rc_fixedarray[T](rc : Rc[FixedArray[T]]) -> ConstPtr[T] {
+pub fn[T] ConstPtr::from_rc_fixedarray(rc : Rc[FixedArray[T]]) -> ConstPtr[T] {
   unsafe_coerce(rc)
 }
 
 ///|
-pub fn ConstPtr::from_rc_bytes[T](rc : Rc[Bytes]) -> ConstPtr[T] {
+pub fn[T] ConstPtr::from_rc_bytes(rc : Rc[Bytes]) -> ConstPtr[T] {
   unsafe_coerce(rc)
 }
 
 ///|
-pub fn ConstPtr::from_rc_string[T](rc : Rc[String]) -> ConstPtr[T] {
+pub fn[T] ConstPtr::from_rc_string(rc : Rc[String]) -> ConstPtr[T] {
   unsafe_coerce(rc)
 }
