@@ -37,6 +37,10 @@ jobs:
       fail-fast: false
     runs-on: ${{ matrix.os.name }}
     continue-on-error: false
+    
+    env:
+      MOON_CC: gcc
+
     steps:
       - uses: actions/checkout@v4
         with:
@@ -85,7 +89,7 @@ jobs:
 
       - name: moon test --doc
         run: |
-          moon test --doc
+          moon test --doc          
 
   moon-json-format-check:
     runs-on: ubuntu-latest
