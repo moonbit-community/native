@@ -11,4 +11,4 @@ type Ptr[T]
 type ConstPtr[T]
 
 ///|
-type CStr ConstPtr[Byte]
+struct CStr(ConstPtr[Byte])

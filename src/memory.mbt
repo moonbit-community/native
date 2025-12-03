@@ -14,19 +14,19 @@ pub extern "c" fn memset(ptr : Ptr[Byte], val : Byte, count : UInt64) = "moonbit
 pub extern "c" fn memcpy(
   dest : Ptr[Byte],
   src : ConstPtr[Byte],
-  count : UInt64
+  count : UInt64,
 ) = "moonbit_native_memcpy"
 
 ///|
 pub extern "c" fn memmove(
   dest : Ptr[Byte],
   src : ConstPtr[Byte],
-  count : UInt64
+  count : UInt64,
 ) = "moonbit_native_memmove"
 
 ///|
 pub extern "c" fn memcmp(
   a : ConstPtr[Byte],
   b : ConstPtr[Byte],
-  count : UInt64
+  count : UInt64,
 ) -> Int = "moonbit_native_memcmp"

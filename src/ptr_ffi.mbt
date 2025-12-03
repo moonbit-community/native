@@ -1,13 +1,13 @@
 ///|
 extern "c" fn pointer_add(
   ptr : ConstPtr[Byte],
-  offset : Int64
+  offset : Int64,
 ) -> ConstPtr[Byte] = "moonbit_native_pointer_add"
 
 ///|
 extern "c" fn pointer_sub(
   ptr : ConstPtr[Byte],
-  other : ConstPtr[Byte]
+  other : ConstPtr[Byte],
 ) -> Int64 = "moonbit_native_pointer_sub"
 
 ///|
