@@ -11,7 +11,7 @@ pub fn[T] ConstPtr::compare(self : ConstPtr[T], other : ConstPtr[T]) -> Int {
 ///|
 pub fn[T : Sized] ConstPtr::add(
   self : ConstPtr[T],
-  offset : Int64
+  offset : Int64,
 ) -> ConstPtr[T] {
   self |> unsafe_coerce |> pointer_add(offset * T::size()) |> unsafe_coerce
 }
@@ -19,7 +19,7 @@ pub fn[T : Sized] ConstPtr::add(
 ///|
 pub fn[T : Sized] ConstPtr::sub(
   self : ConstPtr[T],
-  other : ConstPtr[T]
+  other : ConstPtr[T],
 ) -> Int64 {
   let lhs = unsafe_coerce(self)
   let rhs = unsafe_coerce(other)

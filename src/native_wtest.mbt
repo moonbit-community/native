@@ -107,7 +107,7 @@ test "CString::to_bytes" {
 }
 
 ///|
-test "memcpy" {
+test "memcmp" {
   let lhs : FixedArray[Double] = [1.0, 2.0, 3.0, 4.0]
   let rhs : FixedArray[Double] = [1.0, 2.0, 3.0, 4.0, 5]
   let rc_lhs = Rc::from_fixedarray(lhs)

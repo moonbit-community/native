@@ -27,7 +27,7 @@ pub fn[R] Rc::scope_bytes(xs : Bytes, f : (ConstPtr[Byte], Int) -> R) -> R {
 ///|
 pub fn[T, R] Rc::scope_fixedarray(
   xs : FixedArray[T],
-  f : (Ptr[T], Int) -> R
+  f : (Ptr[T], Int) -> R,
 ) -> R {
   let rc = Rc::from_fixedarray(xs)
   let ptr : Ptr[T] = unsafe_coerce(rc)

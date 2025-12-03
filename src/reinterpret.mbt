@@ -10,7 +10,7 @@ pub fn[T] Ptr::reinterpret_as_const_byte_ptr(self : Ptr[T]) -> ConstPtr[Byte] {
 
 ///|
 pub fn[T] ConstPtr::reinterpret_as_const_byte_ptr(
-  self : ConstPtr[T]
+  self : ConstPtr[T],
 ) -> ConstPtr[Byte] {
   unsafe_coerce(self)
 }
