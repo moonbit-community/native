@@ -6,5 +6,6 @@
   "license": "Apache-2.0",
   "keywords": ["native", "FFI", "utility", "pointer", "cstr"],
   "description": "native FFI utility",
-  "source": "src"
+  "source": "src",
+  "preferred-target": "native"
 }
