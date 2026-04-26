@@ -119,7 +119,7 @@ test "memcmp" {
     rhs_ptr.reinterpret_as_const_byte_ptr(),
     (4L * size_of_double).reinterpret_as_uint64(),
   )
-  try_finally(fn() { assert_eq(cmp, 0) }, finally_=fn() {
+  try_finally(() => assert_eq(cmp, 0), finally_=fn() {
     rc_lhs.release()
     rc_rhs.release()
   })
