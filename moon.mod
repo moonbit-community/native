@@ -1,0 +1,17 @@
+name = "illusory0x0/native"
+
+version = "0.2.1"
+
+readme = "README.md"
+
+repository = "https://github.com/moonbit-community/native"
+
+license = "Apache-2.0"
+
+keywords = [ "native", "FFI", "utility", "pointer", "cstr" ]
+
+description = "native FFI utility"
+
+source = "src"
+
+preferred_target = "native"

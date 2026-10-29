@@ -14,7 +14,7 @@ pub fn[T] Ptr::to_const_ptr(self : Ptr[T]) -> ConstPtr[T] {
 }
 
 ///|
-pub fn[T] Ptr::compare(self : Ptr[T], other : Ptr[T]) -> Int {
+pub fn[T] Ptr::compare(self : Ptr[T], other : Ptr[T]) -> Int32 {
   pointer_sub(unsafe_coerce(self), unsafe_coerce(other)).to_int()
 }
 
