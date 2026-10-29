@@ -1,14 +1,14 @@
 ///|
 trait Sized {
-  size() -> Int64
+  fn size() -> Int64
 }
 
 ///|
 trait Setter {
-  set(Ptr[Self], Self) -> Unit
+  fn set(Ptr[Self], Self) -> Unit
 }
 
 ///|
 trait Getter {
-  get(ConstPtr[Self]) -> Self
+  fn get(ConstPtr[Self]) -> Self
 }

@@ -4,7 +4,7 @@ pub fn[T : Getter] ConstPtr::get(self : ConstPtr[T]) -> T {
 }
 
 ///|
-pub fn[T] ConstPtr::compare(self : ConstPtr[T], other : ConstPtr[T]) -> Int {
+pub fn[T] ConstPtr::compare(self : ConstPtr[T], other : ConstPtr[T]) -> Int32 {
   pointer_sub(unsafe_coerce(self), unsafe_coerce(other)).to_int()
 }
 

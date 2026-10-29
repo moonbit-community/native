@@ -29,4 +29,4 @@ pub extern "c" fn memcmp(
   a : ConstPtr[Byte],
   b : ConstPtr[Byte],
   count : UInt64,
-) -> Int = "moonbit_native_memcmp"
+) -> Int32 = "moonbit_native_memcmp"

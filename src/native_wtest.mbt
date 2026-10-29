@@ -34,7 +34,7 @@ test "Rc::bytes_scope" {
 
 ///|
 test "Rc::fixedarray_scope" {
-  let arr : FixedArray[UInt] = [1, 2, 3, 4, 5]
+  let arr : FixedArray[UInt32] = [1, 2, 3, 4, 5]
   let len = Rc::scope_fixedarray(arr, fn(ptr, len) { len })
   assert_eq(len, arr.length())
   for i in 0..<arr.length() {
@@ -56,8 +56,8 @@ test "memset" {
 
 ///|
 test "memcpy" {
-  let actual : FixedArray[Int] = FixedArray::makei(10, fn(i) { i + 1 })
-  let expected : FixedArray[Int] = [1, 2, 3, 4, 1, 2, 3, 4, 9, 10]
+  let actual : FixedArray[Int32] = FixedArray::makei(10, fn(i) { i + 1 })
+  let expected : FixedArray[Int32] = [1, 2, 3, 4, 1, 2, 3, 4, 9, 10]
   Rc::scope_fixedarray(actual, fn(src, len) {
     let dest = src.add(4)
     let len = (4L * size_of_int).reinterpret_as_uint64()
@@ -72,8 +72,8 @@ test "memcpy" {
 
 ///|
 test "memmove" {
-  let actual : FixedArray[Int] = FixedArray::makei(10, fn(i) { i + 1 })
-  let expected : FixedArray[Int] = [1, 2, 3, 4, 1, 2, 3, 4, 9, 10]
+  let actual : FixedArray[Int32] = FixedArray::makei(10, fn(i) { i + 1 })
+  let expected : FixedArray[Int32] = [1, 2, 3, 4, 1, 2, 3, 4, 9, 10]
   Rc::scope_fixedarray(actual, fn(src, len) {
     let dest = src.add(4)
     let len = (4L * size_of_int).reinterpret_as_uint64()
@@ -119,7 +119,7 @@ test "memcmp" {
     rhs_ptr.reinterpret_as_const_byte_ptr(),
     (4L * size_of_double).reinterpret_as_uint64(),
   )
-  try_finally(fn() { assert_eq(cmp, 0) }, finally_=fn() {
+  try_finally(() => assert_eq(cmp, 0), finally_=fn() {
     rc_lhs.release()
     rc_rhs.release()
   })
